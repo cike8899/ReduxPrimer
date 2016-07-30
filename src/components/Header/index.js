@@ -27,8 +27,8 @@ class Header extends Component {
         <a href="http://ant.design/#/components/menu" target="_blank"><b>组件请使用AntDesign，如布局导航</b></a>
         <TodoTextInput
           newTodo
-          onSave={::this.handleSave}
-          placeholder="What needs to be done?" />
+          onSave={:: this.handleSave}
+        placeholder="What needs to be done?" />
       </header>
     )
   }
