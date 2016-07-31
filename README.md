@@ -3,9 +3,6 @@
 
 - 面向用户： 学生
 
-
-
-
 ## 目录结构
 
 ```src/```里含有一个TodoMVC的示例代码，```npm start```后在[http://localhost:5959/](http://localhost:5959/)可查看Demo    
@@ -60,9 +57,3 @@ $ npm run build
 ## 项目负责前端
 
 刺客
-
-## 项目合作角色
-
-产品：够
-后端：没
-设计：有
