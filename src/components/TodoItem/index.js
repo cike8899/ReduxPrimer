@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import TodoTextInput from '../TodoTextInput'
 import classnames from 'classnames'
 import style from './style.less'
+import onfire from 'onfire.js';
 
 class TodoItem extends Component {
   constructor(props, context) {
@@ -10,6 +11,11 @@ class TodoItem extends Component {
     this.state = {
       editing: false
     }
+    onfire.on("test_event", this.test_callback);
+  }
+
+  test_callback(data1, data2) {
+    console.info('this is a event 1', data1, data2);
   }
 
   handleDoubleClick() {
@@ -32,23 +38,23 @@ class TodoItem extends Component {
     if (this.state.editing) {
       element = (
         <TodoTextInput text={todo.text}
-           editing={this.state.editing}
-           onSave={(text) => this.handleSave(todo.id, text)} />
+          editing={this.state.editing}
+          onSave={(text) => this.handleSave(todo.id, text) } />
       )
     } else {
       element = (
         <div className={style.view}>
           <input className={style.toggle}
-             type="checkbox"
-             checked={todo.completed}
-             onChange={() => completeTodo(todo.id)} />
+            type="checkbox"
+            checked={todo.completed}
+            onChange={() => completeTodo(todo.id) } />
 
-          <label onDoubleClick={::this.handleDoubleClick}>
-            {todo.text}
+          <label onDoubleClick={:: this.handleDoubleClick}>
+          {todo.text}
           </label>
 
-          <button className={style.destroy} onClick={() => deleteTodo(todo.id)} />
-        </div>
+        <button className={style.destroy} onClick={() => deleteTodo(todo.id) } />
+        </div >
       )
     }
 
@@ -65,6 +71,7 @@ class TodoItem extends Component {
       </li>
     )
   }
+  
 }
 
 export default TodoItem

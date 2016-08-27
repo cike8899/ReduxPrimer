@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 import style from './style.less'
+import onfire from 'onfire.js';
 
 class TodoTextInput extends Component {
   constructor(props, context) {
@@ -11,8 +12,10 @@ class TodoTextInput extends Component {
     }
   }
 
+
+
   handleSubmit(e) {
-    console.info("handleSubmit:",e.target.value);
+    console.info("handleSubmit:", e.target.value);
     const text = e.target.value.trim()
     if (e.which === 13) {
       this.props.onSave(text)
@@ -23,21 +26,22 @@ class TodoTextInput extends Component {
   }
 
   handleChange(e) {
-    console.info("handleChange:",e.target.value)
+    console.info("handleChange:", e.target.value)
     this.setState({ text: e.target.value })
   }
 
   handleBlur(e) {
+    onfire.fire("test_event", 1, 2);
     const text = e.target.value.trim()
     if (!this.props.newTodo) {
       this.props.onSave(text)
     }
   }
   handleOnKeyUp(e) {
-    console.info("handleOnKeyUp:", this.state.text,e.target.value);
+    console.info("handleOnKeyUp:", this.state.text, e.target.value);
   }
-  handleOnInput(e){
-   console.info("handleOnInput:",e.target.value);
+  handleOnInput(e) {
+    console.info("handleOnInput:", e.target.value);
   }
   componentWillMount() {
     console.info("componetWillMount");
@@ -45,9 +49,7 @@ class TodoTextInput extends Component {
   componentDidMount() {
     console.info("componentDidMount");
   }
-  componentWillUnmount() {
-    console.info("componentWillUnmount");
-  }
+
   //更新组件状态,这些方法不会在首次 render 组件的周期调用
   componentWillReceiveProps(nextProps) {
     console.info("componentWillReceiveProps", nextProps);
@@ -62,6 +64,11 @@ class TodoTextInput extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.info("componentDidUpdate", "prevProps：", prevProps, "prevState:", prevState);
   }
+
+  componentWillUnmount() {
+    // style.unuse();
+  }
+
   render() {
     console.info("render");
     const classes = classnames({
@@ -79,10 +86,13 @@ class TodoTextInput extends Component {
   onChange = {::this.handleChange }
   onKeyDown = {::this.handleSubmit }
   onKeyUp = {::this.handleOnKeyUp }
-  onInput={::this.handleOnInput}
+  onInput = {::this.handleOnInput }
   />
     )
 }
+
+
+
 }
 
 export default TodoTextInput

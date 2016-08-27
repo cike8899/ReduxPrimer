@@ -51,16 +51,19 @@ module.exports = {
           'babel-loader'
         ]
       },
-      {test: /\.json$/, loader: 'json-loader'},
-      {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=[name]_[hash:5].[ext]'}
+      { test: /\.json$/, loader: 'json-loader' },
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=[name]_[hash:5].[ext]' }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      'styles': __dirname + '/src/styles'
+    }
   },
   postcss: [
     autoprefixer({
-      browsers: [ 'Android >= 4', 'iOS > 6', 'last 10 Chrome versions', 'last 4 Firefox versions', 'Safari >= 6', 'ie > 8' ]
+      browsers: ['Android >= 4', 'iOS > 6', 'last 10 Chrome versions', 'last 4 Firefox versions', 'Safari >= 6', 'ie > 8']
     })
   ],
   plugins: [
@@ -73,7 +76,7 @@ module.exports = {
     })
   ],
   devServer: {
-    stats: { chunks:false },
+    stats: { chunks: false },
     contentBase: './src',
     hot: true
   }
