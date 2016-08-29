@@ -52,13 +52,17 @@ module.exports = {
         ]
       },
       { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=[name]_[hash:5].[ext]' }
+      // { test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=8192&name=[path][name].[ext]'}
+      { test: /\.(png|jpg|woff|woff2|eot|ttf)$/, loader: 'url-loader?limit=60000&name=[name]_[hash:5].[ext]' }
+      //inline base64 URLs for <=8k images, direct URLs for the rest
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.less'],
     alias: {
-      'styles': __dirname + '/src/styles'
+      'styles': __dirname + '/src/styles',
+      'imgs': __dirname + '/src/imgs/',
+      'fonts': __dirname + '/src/fonts/'
     }
   },
   postcss: [
@@ -73,6 +77,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './index.html'
+    }),
+    new webpack.ProvidePlugin({
+      "_": "lodash"
     })
   ],
   devServer: {

@@ -1,0 +1,57 @@
+.blog-main-content-wrap {
+    min-height: 450px;
+    color: rgb(0, 0, 0);
+    margin-top: 60px;
+    // padding-top: 60px;
+    .aside-col {
+        position: fixed;
+        right: 0;
+    }
+}
+
+@media (max-width:768px) {
+    .blog-main-content-wrap {
+        aside {
+            display: none;
+        }
+    }
+}
+
+.center-content-wrap {
+    // border: 1px solid rebeccapurple;
+    .col-border {
+        padding: 10px 15px;
+        // border: 1px solid rebeccapurple;
+    }
+}
+
+.article-summary-wrap {
+    // border: 1px solid red;
+    background: rgb(255, 255, 255);
+    // height: 60px;
+    img {
+        width: 100%;
+        height: 150px;
+    }
+    .wrap-art {
+        background: rgb(255, 255, 255);
+        .article-title {
+            text-align: center;
+            background: url('../imgs/Untitled-2.jpg') repeat-x left;
+            a {
+                background: rgb(255, 255, 255);
+            }
+        }
+        .art-content {
+            padding: 1em;
+            p {
+                word-break: break-word;
+                word-spacing: 3px;
+            }
+            .art-content-button-pane {
+                margin: 20px 0 0;
+                text-align: center;
+            }
+        }
+    }
+}
