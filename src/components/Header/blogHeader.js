@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import style from '../../styles/blogHeader.less';
+import {Link,browserHistory} from 'react-router';
 import classnames from 'classnames';
 // import bootstrapdropdownhover  from 'bootstrap-dropdown-hover';
 
@@ -11,6 +12,9 @@ class BlogHeader extends Component {
     alertClicked() {
         console.info("alertClicked");
     }
+    transformRoute(){
+        browserHistory.push('/');
+    }
     render() {
         const classes = classnames({
             'blog-header-wrap': true
@@ -21,13 +25,15 @@ class BlogHeader extends Component {
             <Navbar inverse fixedTop={true}>
                 <Navbar.Header>
                 <Navbar.Brand>
-                    <a href="#">Bill's Blog</a>
+                    <Link to="/">Bill's Blog</Link>
                 </Navbar.Brand>
             <Navbar.Toggle />
             </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav pullRight>
-                            <NavItem eventKey={1} href="#">首页</NavItem>
+                            <NavItem eventKey={1} href="#" onClick={this.transformRoute}>
+                                首页
+                            </NavItem>
                             <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                                 <MenuItem eventKey={3.1}>Action</MenuItem>
                                 <MenuItem eventKey={3.2}>Another action</MenuItem>

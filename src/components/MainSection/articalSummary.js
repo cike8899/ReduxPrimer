@@ -4,10 +4,15 @@ import React, {Component, PropTypes} from 'react';
 import style from 'styles/blogMainContent.less';
 import classnames from 'classnames';
 import {Grid, Row, Col, Collapse, Accordion, Panel, Button} from 'react-bootstrap';
+import {Link, browserHistory } from 'react-router';
 import FontAwesome  from 'react-fontawesome';
 import Img1 from 'imgs/img01.jpg';
 
 class ArticleSummary extends Component {
+    handleSubmit() {
+        browserHistory.push('/blogDetail');
+    }
+
     render() {
         const classes = classnames({
             [style['article-summary-wrap']]: true
@@ -30,11 +35,23 @@ class ArticleSummary extends Component {
                             {artContent}
                         </p>
                         <div className={style['art-content-button-pane']}>
-                            <Button bsStyle="primary">Read More</Button>
+                            <Button bsStyle="primary" onClick={this.handleSubmit}>
+                                Read More
+                            </Button>
                         </div>
                     </div>
                     <div className={style["art-footer"]}>
-                        <FontAwesome name="bookmark"/> icon-camera-retro
+                        <FontAwesome name='bookmark' className={style["article-mark-icon"]} />
+                        <span className={style["article-mark"]}>
+                            <a>
+                                [react]
+                            </a>
+                        </span>
+                        <span className={style["article-mark"]}>
+                            <a>
+                                [javasctipt]
+                            </a>
+                        </span>
                     </div>
                 </div>
             </article >
