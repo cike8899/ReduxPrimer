@@ -20,7 +20,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, './dist'),
     filename: '[name].[hash:5].js',
-    publicPath: 'http://localhost/'  //TODO modify to http://fecdn.59store.com/
+    publicPath: '/' //todo:http://localhost/
   },
   module: {
     loaders: [
@@ -53,11 +53,17 @@ module.exports = {
         ]
       },
       { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=[name]_[hash:5].[ext]' }
+      // { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=[name]_[hash:5].[ext]' }
+      { test: /\.(png|jpg|woff|woff2|eot|ttf)$/, loader: 'url-loader?limit=60000&name=[name]_[hash:5].[ext]' }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      'styles': __dirname + '/src/styles',
+      'imgs': __dirname + '/src/imgs/',
+      'fonts': __dirname + '/src/fonts/'
+    }
   },
   postcss: [
     autoprefixer({
@@ -68,7 +74,8 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin('lib', 'lib.[hash:5].js'),
     new ExtractTextPlugin("[name].[hash:5].css"),
     new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
+      // 'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
@@ -81,6 +88,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       minify: {},
       template: './index.html'
+    }),
+    new webpack.ProvidePlugin({
+      "_": "lodash"
     })
   ]
 }

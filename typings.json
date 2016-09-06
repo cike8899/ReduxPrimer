@@ -1,10 +1,12 @@
 {
   "globalDependencies": {
     "classnames": "registry:dt/classnames#0.0.0+20160316155526",
+    "codemirror": "registry:dt/codemirror#0.0.0+20160619021621",
     "lodash": "registry:dt/lodash#4.14.0+20160817155621",
     "node-4": "registry:dt/node-4#4.0.0+20160826164342",
     "react": "registry:dt/react#0.14.0+20160805125551",
     "react-bootstrap": "registry:dt/react-bootstrap#0.0.0+20160806072414",
+    "react-codemirror": "registry:dt/react-codemirror#0.2.6+20160619021621",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
     "react-redux": "registry:dt/react-redux#4.4.0+20160724070751",
     "react-router": "registry:dt/react-router#2.0.0+20160813233016",

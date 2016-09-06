@@ -8,8 +8,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 5959",
-    "build": "rm -rf dist/ && NODE_ENV=production webpack --config webpack.config.prod.js --progress --colors"
+    "build": "set NODE_ENV=production && webpack --config webpack.config.prod.js --progress --colors"
   },
+
   "dependencies": {
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.5.2",
@@ -22,6 +23,7 @@
     "babel-runtime": "^6.5.0",
     "bootstrap-dropdown-hover": "^1.0.0",
     "classnames": "^2.2.3",
+    "codemirror": "^5.18.2",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
@@ -38,6 +40,7 @@
     "react-dom": "^15.0.0",
     "react-fontawesome": "^1.1.0",
     "react-masonry-component": "^4.2.1",
+    "react-md-editor": "^0.2.2",
     "react-overlays": "^0.6.6",
     "react-redux": "^4.4.0",
     "react-router": "^2.0.0",

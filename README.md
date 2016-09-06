@@ -5,9 +5,8 @@
 
 ## 目录结构
 
-```src/```里含有一个TodoMVC的示例代码，```npm start```后在[http://localhost:5959/](http://localhost:5959/)可查看Demo    
+  // "build": "rm -rf dist/ && NODE_ENV=production webpack --config webpack.config.prod.js --progress --colors"
 
-```
 src/
 ├── index.html
 ├── index.js

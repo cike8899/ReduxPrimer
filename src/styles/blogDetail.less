@@ -4,6 +4,9 @@
     color: rgb(0, 0, 0);
     .detail-header {
         padding: 0 20px;
+        h4 {
+            padding: 10px 20px;
+        }
     }
     .detail-nav {
         > ul {
@@ -42,12 +45,16 @@
         }
     }
     .detail-article {
-        width: 80%;
     }
 }
 
 @media (max-width:768px) {
     .detail-nav {
         display: none;
+    }
+    .detail-header {
+        h4 {
+            text-align: center;
+        }
     }
 }

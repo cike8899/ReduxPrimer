@@ -3,6 +3,12 @@ import {Grid, Row, Col, Collapse, Accordion, Panel} from 'react-bootstrap';
 import style  from 'styles/blogDetail.less';
 
 class DetailAside extends Component {
+    /**
+     * Creates an instance of DetailAside.
+     * 
+     * @param {any} props
+     * @param {any} context
+     */
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -10,18 +16,41 @@ class DetailAside extends Component {
         };
     }
 
+    /**
+     * 
+     * 
+     * @param {any} index
+     */
     setDomIndex(index) {
         this.setState({ currentIndex: index });
     }
 
+    /**
+     * 
+     * 
+     * @param {any} index
+     * @returns
+     */
     checkLiIndex(index) {
         return (this.state.currentIndex === index) ? style["active"] : style["unactive"];
     }
 
+    /**
+     * 
+     * 
+     * @param {any} nextProps
+     * @param {any} nextState
+     * @returns
+     */
     shouldComponentUpdate(nextProps, nextState) {
         return nextState.currentIndex !== this.state.currentIndex;
     }
 
+    /**
+     * 
+     * 
+     * @returns
+     */
     render() {
         return (
             <div>
