@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Editor  from 'react-md-editor';
+import style  from 'styles/blogDetail.less';
 
 class ArticleSpinner extends Component {
     constructor(props, context) {
@@ -9,9 +10,9 @@ class ArticleSpinner extends Component {
 
     render() {
         return (
-            <div>
+            <div className={style['article-spinner']}>
                 <section>
-                    <h1>什么是DOM？</h1>
+                    <h1 id="0">什么是DOM？</h1>
                     <p>
                         外行看来前端工程师的工作就是改页面（HTML、CSS），写脚本（JavaScript）。当你意识到你不是在改HTML而是在操作DOM时，你就升级了！ 那么什么是DOM？
                     </p>
@@ -20,7 +21,7 @@ class ArticleSpinner extends Component {
                     </blockquote>
                 </section>
                 <section>
-                    <h1>DOM 创建</h1>
+                    <h1 id="3">DOM 创建</h1>
                     <p>
                         DOM节点（Node）通常对应于一个标签，一个文本，或者一个HTML属性。DOM节点有一个nodeType属性用来表示当前元素的类型，它是一个整数
                     </p>
@@ -34,7 +35,7 @@ class ArticleSpinner extends Component {
                     </p>
                 </section>
                 <section>
-                    <h1>DOM 查询</h1>
+                    <h1 id="5">DOM 查询</h1>
                     <p>
                         元素查询的API返回的的结果是DOM节点或者DOM节点的列表。document提供了两种Query方法：
                     </p>

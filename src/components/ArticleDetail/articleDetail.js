@@ -6,6 +6,12 @@ import DetailHeader from './detailHeader';
 import ArticleSpinner from './articleSpinner';
 
 class ArticleDetail extends Component {
+
+    constructor(props, context) {
+        super(props, context);
+        this.state = {};
+    }
+
     render() {
         console.info("kkk");
         return (

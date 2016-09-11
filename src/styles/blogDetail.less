@@ -1,14 +1,16 @@
 @import "./common.less";
 .detail-content {
-    margin-top: 60px;
+    margin-top: 50px;
     color: rgb(0, 0, 0);
     .detail-header {
+        background: rgb(75, 75, 66);
+        color: rgb(157, 160, 162);
         padding: 0 20px;
         h4 {
             padding: 10px 20px;
         }
     }
-    .detail-nav {
+    .common-nav() {
         > ul {
             font-size: 0.9em;
             padding-left: 30px;
@@ -44,7 +46,20 @@
             }
         }
     }
+    .detail-nav {
+        .common-nav;
+    }
+    .detail-nav-fixed {
+        position: fixed;
+        top: 60px;
+        .common-nav;
+    }
     .detail-article {
+        .article-spinner {
+            :target {
+                padding-top: 60px;
+            }
+        }
     }
 }
 
