@@ -13,7 +13,6 @@ class ArticleDetail extends Component {
     }
 
     render() {
-        console.info("kkk");
         return (
             <div className={style["detail-content"]}>
                 <DetailHeader/>

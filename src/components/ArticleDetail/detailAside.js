@@ -1,6 +1,8 @@
 import React, {Component, Children} from 'react';
 import {Grid, Row, Col, Collapse, Accordion, Panel} from 'react-bootstrap';
 import style  from 'styles/blogDetail.less';
+// import {Scrollspy}  from 'react-scrollspy';
+import {Scrollspy}  from '../Common/scrollspy';
 
 class DetailAside extends Component {
     /**
@@ -15,7 +17,7 @@ class DetailAside extends Component {
             currentIndex: 0,
             fixed: false
         };
-        this.handleScroll=this.handleScroll.bind(this);
+        this.handleScroll = this.handleScroll.bind(this);
     }
 
     setDomIndex(index) {
@@ -38,9 +40,9 @@ class DetailAside extends Component {
         // console.info("scrollTop", dom.scrollTop);
         // console.info("offsetTop", dom.offsetTop);
         let bodyScrollTop = window.pageYOffset
-                            || document.documentElement.scrollTop
-                            || document.body.scrollTop
-                            || 0; 
+            || document.documentElement.scrollTop
+            || document.body.scrollTop
+            || 0;
         if (bodyScrollTop > 40) {
             this.setState({
                 fixed: true
@@ -52,12 +54,16 @@ class DetailAside extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+
+    }
+
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
     }
 
     componentWillUnmount() {
-          window.removeEventListener("scroll", this.handleScroll);
+        window.removeEventListener("scroll", this.handleScroll);
     }
 
     updateCurrentStyle() {
@@ -69,7 +75,7 @@ class DetailAside extends Component {
         return (
             <div>
                 <aside className={this.updateCurrentStyle() }>
-                    <ul>
+                    <Scrollspy items={['0', '3', '6']} currentClassName={style['is-current']}>
                         <li className={this.checkLiIndex.call(this, 0) } onClick={(e) => { this.setDomIndex(0) } }>
                             <a href="#0">
                                 什么是DOM？
@@ -84,20 +90,20 @@ class DetailAside extends Component {
                                 DOM 创建
                             </a>
                             <ul className={style["level1-ul"]}>
-                                <li><a href="#3">两种Query方法</a></li>
-                                <li><a href="#4">API返回的的</a></li>
+                                <li><a href="#4">两种Query方法</a></li>
+                                <li><a href="#5">API返回的的</a></li>
                             </ul>
                         </li>
                         <li className={this.checkLiIndex.call(this, 2) } onClick={(e) => { this.setDomIndex(2) } }>
-                            <a href="#5">
+                            <a href="#6">
                                 DOM 查询
                             </a>
                             <ul className={style["level1-ul"]}>
-                                <li><a href="#6">innerHTML与outerHTML的区别？</a></li>
-                                <li><a href="#7">jQuery的html() 与innerHTML的区别？</a></li>
+                                <li><a href="#7">innerHTML与outerHTML的区别？</a></li>
+                                <li><a href="#8">jQuery的html() 与innerHTML的区别？</a></li>
                             </ul>
                         </li>
-                    </ul>
+                    </Scrollspy>
                 </aside>
             </div>
         );

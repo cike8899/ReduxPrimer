@@ -7,11 +7,22 @@ class ArticleSpinner extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = { code: "# Markdown" };
+        // this.handleWaypointEnter = this.handleWaypointEnter.bind(this);
+        // this.handleWaypointLeave = this.handleWaypointLeave.bind(this);
+    }
+
+    handleWaypointEnter(msg) {
+        console.info(msg);
+    }
+
+    handleWaypointLeave(msg) {
+        console.info(msg);
     }
 
     render() {
         return (
             <div className={style['article-spinner']}>
+                <Waypoint onEnter={() => { this.handleWaypointEnter("enter") } }  onLeave={() => { this.handleWaypointLeave("leave") } }/>
                 <section>
                     <h1 id="0">什么是DOM？</h1>
                     <p>
@@ -36,7 +47,7 @@ class ArticleSpinner extends Component {
                     </p>
                 </section>
                 <section>
-                    <h1 id="5">DOM 查询</h1>
+                    <h1 id="6">DOM 查询</h1>
                     <p>
                         元素查询的API返回的的结果是DOM节点或者DOM节点的列表。document提供了两种Query方法：
                     </p>
