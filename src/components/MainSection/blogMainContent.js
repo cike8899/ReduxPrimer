@@ -14,10 +14,10 @@ class BlogMainContent extends Component {
         let gridInstance = (
             <Grid fluid>
                 <Row className="show-grid">
-                    <Col xs={12} md={9} lg={4}>
+                    <Col xs={12} md={9}>
                         <CenterContent/>
                     </Col>
-                    <Col xs={12} md={3} lg={4} xsHidden className={style['aside-col']}>
+                    <Col xs={12} md={3} xsHidden className={style['aside-col']}>
                         <AsideNavBar/>
                     </Col>
                 </Row>

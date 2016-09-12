@@ -37,7 +37,10 @@ class DetailAside extends Component {
         // console.info("aside滚动", clientRect.top);
         // console.info("scrollTop", dom.scrollTop);
         // console.info("offsetTop", dom.offsetTop);
-        let bodyScrollTop = document.body.scrollTop;
+        let bodyScrollTop = window.pageYOffset
+                            || document.documentElement.scrollTop
+                            || document.body.scrollTop
+                            || 0; 
         if (bodyScrollTop > 40) {
             this.setState({
                 fixed: true
