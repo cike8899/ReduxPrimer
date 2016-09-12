@@ -15,6 +15,7 @@ class DetailAside extends Component {
             currentIndex: 0,
             fixed: false
         };
+        this.handleScroll=this.handleScroll.bind(this);
     }
 
     setDomIndex(index) {
@@ -49,11 +50,11 @@ class DetailAside extends Component {
     }
 
     componentDidMount() {
-        window.addEventListener("scroll", this.handleScroll.bind(this));
+        window.addEventListener("scroll", this.handleScroll);
     }
 
-    componentWillMount() {
-        window.removeEventListener("scroll", this.handleScroll.bind(this));
+    componentWillUnmount() {
+          window.removeEventListener("scroll", this.handleScroll);
     }
 
     updateCurrentStyle() {

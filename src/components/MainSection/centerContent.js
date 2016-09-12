@@ -39,7 +39,7 @@ class CenterContent extends Component {
         let colClasses = classnames({
             [style['col-border']]: true
         });
-        let domArr = this.arr.map((obj,idx) => {
+        let domArr = this.arr.map((obj, idx) => {
             return (
                 <Col xs={12} sm={6} md={6} className={colClasses} key={idx}>
                     <ArticleSummary artImg={obj.artImg} artTitle={obj.artTitle}

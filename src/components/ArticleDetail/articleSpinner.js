@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Editor  from 'react-md-editor';
 import style  from 'styles/blogDetail.less';
+import Waypoint  from 'react-waypoint';
 
 class ArticleSpinner extends Component {
     constructor(props, context) {
