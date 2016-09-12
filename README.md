@@ -1,10 +1,6 @@
-
-# 学习
-
-- 面向用户： 学生
-
 ## 目录结构
 
+```
   // "build": "rm -rf dist/ && NODE_ENV=production webpack --config webpack.config.prod.js --progress --colors"
 
 src/
@@ -52,7 +48,3 @@ $ npm start
 ```
 $ npm run build
 ```
-
-## 项目负责前端
-
-刺客
