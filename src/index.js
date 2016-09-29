@@ -13,6 +13,7 @@ import App from './containers/App'
 import Blog from './containers/Blog'
 import MainSection from './components/MainSection/blogMainContent'
 import ArticleDetail from './components/ArticleDetail/articleDetail'
+import TabContainer from './components/Taber/tabContiner'
 // 按需增删改 end
 
 const store = createStore()
@@ -42,6 +43,7 @@ ReactDOM.render(
       <Route component={Blog}>
         <Route path="/" component={MainSection} />
         <Route path="/blogDetail" component={ArticleDetail} />
+        <Route path="/tab" component={TabContainer} />
       </Route>
       <Route path="/app" component={App} />
       <Route path="/routetest" component={RouteTest} />
