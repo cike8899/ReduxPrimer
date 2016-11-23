@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Editor from 'react-md-editor';
 import style from 'styles/blogDetail.less';
 import Waypoint from 'react-waypoint';
+// import marked from 'marked';
+import marked from '../../utils/markedHighLight';
 
 class ArticleSpinner extends Component {
     constructor(props, context) {
@@ -22,11 +24,15 @@ class ArticleSpinner extends Component {
     render() {
         let note = this.props.note;
         let isNoteExist = (note && Object.keys(note).length > 0) ? true : false;
+        let rawMarkup = "";
+        if (isNoteExist) {
+            rawMarkup = marked(note.content.toString());
+        }
         return (
             <div className={style['article-spinner']}>
                 <Waypoint onEnter={() => { this.handleWaypointEnter("enter") } }
                     onLeave={() => { this.handleWaypointLeave("leave") } } />
-                {isNoteExist ? note.content : ""}
+                <span dangerouslySetInnerHTML={{ __html: rawMarkup }}></span>
             </div>
         );
     }

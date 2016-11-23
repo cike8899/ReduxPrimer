@@ -32,11 +32,11 @@ export function getDataByPage() {
 }
 
 export function get(url) {
-    return new Promise((resolve, reject) => {
-        request.get("GET", url).then((data) => {
-            resolve(data.body);
-        }, (err) => {
-            reject(err);
-        });
-    });
+    return request('GET', url).then((data) => {
+        console.info(data.body);
+        return data.body;
+    }, (err) => {
+        console.info(err);
+        return err;
+    })
 }

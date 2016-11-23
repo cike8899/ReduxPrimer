@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Collapse, Accordion, Panel } from 'react-bootstrap';
+import marked from 'marked';
 import style from 'styles/blogDetail.less';
 import DetailAside from './detailAside';
 import DetailHeader from './detailHeader';
@@ -30,9 +31,6 @@ class ArticleDetail extends Component {
                         </Col>
                         <Col xs={12} md={9}>
                             <article className={style["detail-article"]}>
-                                <p>
-                                    {isNoteExist ? note.excerpt : ""}
-                                </p>
                                 <ArticleSpinner note={note} />
                             </article>
                         </Col>
