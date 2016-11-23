@@ -13,6 +13,8 @@
     "react-router-redux": "registry:dt/react-router-redux#4.0.0+20160724070902",
     "redux": "registry:dt/redux#3.5.2+20160703092728",
     "redux-actions": "registry:dt/redux-actions#0.8.0+20160521154116",
+    "redux-promise": "registry:dt/redux-promise#0.5.3+20160914125120",
+    "superagent": "registry:dt/superagent#2.0.0+20160906143408",
     "webpack": "registry:dt/webpack#1.12.9+20160724112410"
   },
   "globalDevDependencies": {}

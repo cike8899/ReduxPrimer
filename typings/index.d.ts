@@ -10,5 +10,7 @@
 /// <reference path="globals/react-router/index.d.ts" />
 /// <reference path="globals/react/index.d.ts" />
 /// <reference path="globals/redux-actions/index.d.ts" />
+/// <reference path="globals/redux-promise/index.d.ts" />
 /// <reference path="globals/redux/index.d.ts" />
+/// <reference path="globals/superagent/index.d.ts" />
 /// <reference path="globals/webpack/index.d.ts" />

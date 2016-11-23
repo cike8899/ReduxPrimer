@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
-import {Grid, Row, Col, Collapse, Accordion, Panel} from 'react-bootstrap';
-import Masonry, {MasonryOptions, MasonryPropTypes}  from 'react-masonry-component';
+import { Grid, Row, Col, Collapse, Accordion, Panel } from 'react-bootstrap';
+import Masonry, { MasonryOptions, MasonryPropTypes } from 'react-masonry-component';
 import style from '../../styles/blogMainContent.less';
 import img1 from 'imgs/img01.jpg';
 import img2 from 'imgs/img02.jpg';
@@ -31,6 +31,11 @@ class CenterContent extends Component {
         ];
     }
 
+
+    componentWillMount() {
+        this.props.actions.getAllNotes();
+    }
+
     render() {
         let classes = classnames({
             [style['center-content-wrap']]: true
@@ -39,11 +44,10 @@ class CenterContent extends Component {
         let colClasses = classnames({
             [style['col-border']]: true
         });
-        let domArr = this.arr.map((obj, idx) => {
+        let domArr = this.props.notes.map((note, idx) => {
             return (
                 <Col xs={12} sm={6} md={6} className={colClasses} key={idx}>
-                    <ArticleSummary artImg={obj.artImg} artTitle={obj.artTitle}
-                        artContent={obj.artContent}/>
+                    <ArticleSummary artImg={this.arr[0].artImg} note={note} actions={this.props.actions} />
                 </Col>
             );
         });

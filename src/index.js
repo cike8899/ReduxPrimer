@@ -3,7 +3,7 @@ import 'normalize.css/normalize.css'
 import './base.less'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, hashHistory, browserHistory} from 'react-router'
+import { Router, Route, hashHistory, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Provider } from 'react-redux'
 import createStore from './store'
@@ -42,7 +42,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route component={Blog}>
         <Route path="/" component={MainSection} />
-        <Route path="/blogDetail" component={ArticleDetail} />
+        <Route path="/blogDetail/:id" component={ArticleDetail} />
         <Route path="/tab" component={TabContainer} />
       </Route>
       <Route path="/app" component={App} />
