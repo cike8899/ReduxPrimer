@@ -19,7 +19,6 @@ import TabContainer from './components/Taber/tabContiner'
 const store = createStore()
 const history = syncHistoryWithStore(browserHistory, store)
 
-
 /**
  * not be used currently
  */

@@ -30,7 +30,7 @@ class Blog extends Component {
 
 Blog.propTypes = {
   todos: PropTypes.array,
-  notes: PropTypes.array,
+  notes: PropTypes.object,
   note: PropTypes.object,
   actions: PropTypes.object,
   children: PropTypes.node

@@ -6,7 +6,7 @@ export function post(url, formData) {
             // .withCredentials()
             .send(formData)
             .set('Accept', 'application/json')
-            .set('Authorization', token)
+            // .set('Authorization', token)
             .end(function (err, res) {
                 console.info("res:", res.body);
                 console.info("err:", err);

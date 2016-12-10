@@ -33,6 +33,7 @@ marked.setOptions({
     smartypants: true,
     highlight: function (code, lang) {
         if (!~languages.indexOf(lang)) {
+            console.info(highlight.highlightAuto(code).value);
             return highlight.highlightAuto(code).value;
         }
         return highlight.highlight(lang, code).value;

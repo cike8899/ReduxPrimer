@@ -7,6 +7,7 @@ import img1 from 'imgs/img01.jpg';
 import img2 from 'imgs/img02.jpg';
 import img3 from 'imgs/img03.jpg';
 import img4 from 'imgs/img04.jpg';
+import domEvent from '../../utils/domEvent';
 
 import ArticleSummary from './articalSummary';
 
@@ -29,11 +30,41 @@ class CenterContent extends Component {
             { artImg: img3, artTitle: "react 最佳实践", artContent: contents[2] },
             { artImg: img4, artTitle: "css3 不为人知的秘密", artContent: contents[3] }
         ];
+        this.handleScroll = this.handleScroll.bind(this);
     }
 
+    handleScroll(e) {
+        let htmlEle = document.querySelector("html");
+        let bodyEle = document.querySelector("body");
+        let clientH = htmlEle.clientHeight;
+        let scrollH = htmlEle.scrollHeight;
+        let scrollTop = bodyEle.scrollTop;
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+            let currentCount = this.props.notes.rows.length;
+            let total = this.props.notes.pageObj.total;
+            if ((scrollH - scrollTop < clientH + 30) && (currentCount < total)) {
+                let nextPage = this.props.notes.pageObj.currentPage + 1;//这边应该后台数据返回成功后再进行下次查询
+                this.props.actions.getNotesExcerptByPage({ countPerPage: 5, currentPage: nextPage });
+            }
+        }, 1000);
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.info(nextProps, nextState);
+    }
 
     componentWillMount() {
-        this.props.actions.getAllNotes();
+        // this.props.actions.getAllNotes();
+        this.props.actions.getNotesExcerptByPage({ countPerPage: 5, currentPage: 1 });
+    }
+
+    componentDidMount() {
+        domEvent(window).on("scroll", this.handleScroll);
+    }
+
+    componentWillUnmount() {
+        domEvent(window).off("scroll", this.handleScroll);
     }
 
     render() {
@@ -44,7 +75,7 @@ class CenterContent extends Component {
         let colClasses = classnames({
             [style['col-border']]: true
         });
-        let domArr = this.props.notes.map((note, idx) => {
+        let domArr = this.props.notes.rows.map((note, idx) => {
             return (
                 <Col xs={12} sm={6} md={6} className={colClasses} key={idx}>
                     <ArticleSummary artImg={this.arr[0].artImg} note={note} actions={this.props.actions} />
